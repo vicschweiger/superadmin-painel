@@ -1,0 +1,52 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Dependências - NUNCA suba isso!
+node_modules
+.pnp
+.pnp.js
+
+# Build - Arquivos gerados pelo Vite ao fazer o deploy
+dist
+dist-ssr
+
+# Variáveis de Ambiente - SEGREDO!
+# Nunca suba isso para o GitHub, pois contém suas chaves de API
+.env
+.env.local
+.env.*.local
+
+# Logs e arquivos temporários do npm/yarn
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor e Sistema Operacional
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.tmp
