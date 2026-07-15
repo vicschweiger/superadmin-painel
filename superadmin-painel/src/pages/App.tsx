@@ -1,6 +1,5 @@
-import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import SuperAdminCompanies from './pages/SuperAdminCompanies';
+import SuperAdminCompanies from '../pages/SuperAdminCompanies.tsx';
 
 
 function App() {
@@ -8,7 +7,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Navigate to="/superadmin/companies" replace />} />
       <Route path="/superadmin/companies" element={<SuperAdminCompanies />} />
-      <Route path="/dashboard" element={<ClientDashboard />} />
+      <Route path="/dashboard" element={<SuperAdminCompanies />} />
     </Routes>
   );
 }

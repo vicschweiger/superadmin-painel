@@ -237,9 +237,9 @@ const CompanyModal: React.FC<CompanyModalProps> = ({ isOpen, onClose, onSave, co
             <fieldset className="border p-4 rounded-md">
               <legend className="text-sm font-semibold text-gray-600 px-2">Liberação de Módulos (Feature Flags)</legend>
               <div className="space-y-4">
-                <ToggleSwitch label="Habilitar Módulo de Cardápio" enabled={formData.module_catalog} onChange={(val) => handleToggleChange('module_catalog', val)} />
-                <ToggleSwitch label="Habilitar E-commerce/Pagamento" enabled={formData.module_ecommerce} onChange={(val) => handleToggleChange('module_ecommerce', val)} />
-                <ToggleSwitch label="Habilitar Módulo de Reservas" enabled={formData.module_reservations} onChange={(val) => handleToggleChange('module_reservations', val)} />
+                <ToggleSwitch label="Habilitar Módulo de Cardápio" enabled={formData.module_catalog} onChange={(val: boolean) => handleToggleChange('module_catalog', val)} />
+                <ToggleSwitch label="Habilitar E-commerce/Pagamento" enabled={formData.module_ecommerce} onChange={(val: boolean) => handleToggleChange('module_ecommerce', val)} />
+                <ToggleSwitch label="Habilitar Módulo de Reservas" enabled={formData.module_reservations} onChange={(val: boolean) => handleToggleChange('module_reservations', val)} />
               </div>
             </fieldset>
           </div>
@@ -295,11 +295,11 @@ const SuperAdminCompanies: React.FC = () => {
     if (editingCompany) {
       // TODO: Lógica de UPDATE (PUT /api/superadmin/companies/{id})
       console.log("Updating company:", companyData);
-      setCompanies(prev => prev.map(c => c.id === companyData.id ? companyData : c));
+      setCompanies((prev: any[]) => prev.map(c => c.id === companyData.id ? companyData : c));
     } else {
       // TODO: Lógica de CREATE (POST /api/superadmin/companies)
       console.log("Creating new company:", companyData);
-      setCompanies(prev => [...prev, companyData]);
+      setCompanies((prev: any[]) => [...prev, companyData]);
     }
     handleCloseModal();
   }, [editingCompany]);
@@ -318,7 +318,7 @@ const SuperAdminCompanies: React.FC = () => {
   };
 
   const filteredCompanies = useMemo(() => 
-    companies.filter(company =>
+    companies.filter((company: any) =>
       company.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       company.client_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       company.access_token.toLowerCase().includes(searchTerm.toLowerCase())
@@ -359,7 +359,7 @@ const SuperAdminCompanies: React.FC = () => {
                 type="text"
                 placeholder="Buscar por nome, cliente ou token..."
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(e.target.value)}
                 className="block w-full pl-10 pr-3 py-2 border border-gray-300 rounded-md leading-5 bg-white placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               />
             </div>
@@ -379,7 +379,7 @@ const SuperAdminCompanies: React.FC = () => {
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
-                {filteredCompanies.map((company) => (
+                {filteredCompanies.map((company: any) => (
                   <tr key={company.id} className="hover:bg-gray-50">
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="flex items-center">
