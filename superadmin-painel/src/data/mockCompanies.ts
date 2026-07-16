@@ -10,13 +10,12 @@ export const mockCompanies: Company[] = [
     client_phone: '11987654321',
     client_cpf: '123.456.789-00',
     payment_status: 'active',
+    is_active: true, // Adicionado para satisfazer a interface
     expiry_date: '2024-12-31',
     modules: {
-      catalog_mode: true, // Ajustamos para o nome correto
-      store_mode: false   // Adicionamos o outro campo obrigatório
+      catalog_mode: true,
+      store_mode: false 
     },
-    module_ecommerce: true,
-    module_reservations: true,
     gtm_container_id: 'GTM-XXXXXX'
   },
   {
@@ -28,13 +27,12 @@ export const mockCompanies: Company[] = [
     client_phone: '21912345678',
     client_cpf: '987.654.321-99',
     payment_status: 'pending',
+    is_active: true, // Adicionado para satisfazer a interface
     expiry_date: '2024-08-15',
     modules: {
-      catalog_mode: true, // Ajustamos para o nome correto
-      store_mode: false   // Adicionamos o outro campo obrigatório
-    },
-    module_ecommerce: false,
-    module_reservations: false,
+      catalog_mode: true,
+      store_mode: false 
+    }
   },
   {
     id: '5C1J7M',
@@ -45,9 +43,11 @@ export const mockCompanies: Company[] = [
     client_phone: '41955558888',
     client_cpf: '456.789.123-11',
     payment_status: 'suspended',
+    is_active: false, // Adicionado para satisfazer a interface
     expiry_date: '2024-07-01',
-    module_catalog: false,
-    module_ecommerce: false,
-    module_reservations: false,
+    modules: {
+      catalog_mode: false,
+      store_mode: false
+    }
   },
 ];

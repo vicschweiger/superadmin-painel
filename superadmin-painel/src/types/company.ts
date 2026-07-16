@@ -3,6 +3,8 @@ export type PaymentStatus = 'active' | 'pending' | 'suspended';
 export interface CompanyModules {
   catalog_mode: boolean;
   store_mode: boolean;
+  ecommerce?: boolean;      // Adicionado
+  reservations?: boolean;   // Adicionado
 }
 
 // Renomeamos de CompanyData para Company
