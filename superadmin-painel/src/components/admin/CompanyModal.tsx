@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { X, Link as LinkIcon, Database } from 'lucide-react';
-import type { CompanyData } from '../../types/company';
+import type { Company } from '../../types/company.ts';
 import { ToggleSwitch } from '../ui/ToggleSwitch';
 
 interface CompanyModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onSave: (company: CompanyData) => void;
-  company: CompanyData | null;
+  onSave: (company: Company) => void;
+  company: Company | null;
 }
 
 export const CompanyModal: React.FC<CompanyModalProps> = ({ isOpen, onClose, onSave, company }) => {
-  const initialFormData: CompanyData = {
+  const initialFormData: Company = {
     access_token: '',
     name: '',
     client_name: '',
@@ -29,7 +29,7 @@ export const CompanyModal: React.FC<CompanyModalProps> = ({ isOpen, onClose, onS
     }
   };
 
-  const [formData, setFormData] = useState<CompanyData>(initialFormData);
+  const [formData, setFormData] = useState<Company>(initialFormData);
 
   useEffect(() => {
     if (company) {
@@ -52,7 +52,7 @@ export const CompanyModal: React.FC<CompanyModalProps> = ({ isOpen, onClose, onS
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleToggleChange = (name: keyof CompanyData, value: boolean) => {
+  const handleToggleChange = (name: keyof Company, value: boolean) => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 

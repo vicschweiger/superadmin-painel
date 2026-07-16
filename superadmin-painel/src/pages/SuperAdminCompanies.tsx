@@ -18,15 +18,15 @@ import {
   ChevronDown
 } from 'lucide-react';
 
-import type { CompanyData } from '../types/company'; 
+import type { Company } from '../types/company'; 
 import { StatusBadge } from '../components/ui/StatusBadge';
 import { CompanyModal } from '../components/admin/CompanyModal';
 
 export default function SuperAdminCompanies() {
-  const [companies, setCompanies] = useState<CompanyData[]>([]);
+  const [companies, setCompanies] = useState<Company[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [editingCompany, setEditingCompany] = useState<CompanyData | null>(null);
+  const [editingCompany, setEditingCompany] = useState<Company | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -72,7 +72,7 @@ export default function SuperAdminCompanies() {
     fetchAllCompanies();
   }, []);
 
-  const handleOpenModal = (company: CompanyData | null = null) => {
+  const handleOpenModal = (company: Company | null = null) => {
     setEditingCompany(company);
     setIsModalOpen(true);
   };
@@ -82,7 +82,7 @@ export default function SuperAdminCompanies() {
     setEditingCompany(null);
   };
 
-  const handleSaveCompany = useCallback(async (companyData: CompanyData) => {
+  const handleSaveCompany = useCallback(async (companyData: Company) => {
     try {
       const isEditing = !!editingCompany && editingCompany.access_token;
       const url = isEditing ? `${API_URL}${editingCompany.access_token}/` : API_URL;
