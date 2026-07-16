@@ -25,7 +25,7 @@ export default function SuperAdminLogin() {
       });
 
       const rawText = await response.text();
-      let data = {};
+      let data: any = {};
       
       try {
           data = JSON.parse(rawText);
