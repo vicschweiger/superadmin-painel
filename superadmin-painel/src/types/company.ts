@@ -5,7 +5,8 @@ export interface CompanyModules {
   store_mode: boolean;
 }
 
-export interface CompanyData {
+// Renomeamos de CompanyData para Company
+export interface Company {
   id?: string;
   company_id?: number;
   access_token: string;
@@ -15,10 +16,10 @@ export interface CompanyData {
   client_phone: string;
   client_cpf: string;
   gtm_container_id?: string;
-  spreadsheet_id?: string; // NOVO: ID da Planilha do Google
-  is_active: boolean;      // NOVO: Status de Ativação Geral
+  spreadsheet_id?: string;
+  is_active: boolean;
   payment_status: PaymentStatus;
   status_pagamento?: PaymentStatus;
   expiry_date: string;
-  modules: CompanyModules; // NOVO: Módulos aninhados
+  modules: CompanyModules;
 }
