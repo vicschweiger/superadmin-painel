@@ -11,7 +11,10 @@ export const mockCompanies: Company[] = [
     client_cpf: '123.456.789-00',
     payment_status: 'active',
     expiry_date: '2024-12-31',
-    module_catalog: true,
+    modules: {
+      catalog_mode: true, // Ajustamos para o nome correto
+      store_mode: false   // Adicionamos o outro campo obrigatório
+    },
     module_ecommerce: true,
     module_reservations: true,
     gtm_container_id: 'GTM-XXXXXX'
@@ -26,7 +29,10 @@ export const mockCompanies: Company[] = [
     client_cpf: '987.654.321-99',
     payment_status: 'pending',
     expiry_date: '2024-08-15',
-    module_catalog: true,
+    modules: {
+      catalog_mode: true, // Ajustamos para o nome correto
+      store_mode: false   // Adicionamos o outro campo obrigatório
+    },
     module_ecommerce: false,
     module_reservations: false,
   },
